@@ -1,31 +1,31 @@
 Name:
 
-   Pandaboard Mini Distribution
+   Raspberry Pi Mini Distribution
 
 About:
 
-   A basic GNU/Linux distribution for the Pandaboard
+   A basic GNU/Linux distribution for the Raspberry Pi
 
 Main features:
 
-   * Arm Cortex A9 optimized
+   * Arm 1176zjf-s optimized
    * Glibc based toolchain
    * Systemd init system
    * GNU/Linux system utilities (no busybox)
-   * Ethernet and wifi network support
+   * Ethernet network support
    * OpenSSH client/server
 
 Main builds:
 
-   fs      - Filesystem
-   linux   - Linux kernel
-   u-boot  - Bootloader
+   fs       - Filesystem
+   linux    - Linux kernel
+   firmware - Bootloader for GPU
 
 Quick build guide:
 
    buildgear build fs
    buildgear build linux
-   buildgear build u-boot
+   buildgear build firmware
 
 Build system requirements:
 
@@ -68,4 +68,4 @@ Filesystem layout:
 
 Maintainer:
 
-   Martin Lund <martin.lund@keep-it-simple.com>
+   Torsten Lund <torsten.lund@ixonos.com>
