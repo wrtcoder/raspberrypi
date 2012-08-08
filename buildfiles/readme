@@ -34,7 +34,7 @@ Build system requirements:
 
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
                           libtool automake libncurses5-dev gawk libexpat1-dev \
-                          gettext u-boot-tools libglib2.0-dev intltool
+                          gettext u-boot-tools libglib2.0-dev intltool cmake
 
 
    Also requires reconfiguring "/bin/sh" to use bash:
