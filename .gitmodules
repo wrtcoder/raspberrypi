@@ -15,7 +15,7 @@
 	url = git@github.com:lundmar/cross-extra.git
 [submodule "buildfiles/cross/cross-raspberrypi"]
 	path = buildfiles/cross/cross-raspberrypi
-	url = https://github.com/lundmar/cross-raspberrypi.git
+	url = git@github.com:lundmar/cross-raspberrypi.git
 [submodule "buildfiles/native/native-raspberrypi"]
 	path = buildfiles/native/native-raspberrypi
-	url = https://github.com/lundmar/native-raspberrypi.git
+	url = git@github.com:lundmar/native-raspberrypi.git
