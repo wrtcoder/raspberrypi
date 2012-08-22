@@ -20,14 +20,12 @@ Main builds:
    fs       - Filesystem
    fs-xbmc  - A filesystem including xbmc
    linux    - Linux kernel
-   firmware - Bootloader for GPU
 
 Quick build guide:
 
    buildgear build fs
    buildgear build fs-xbmc
    buildgear build linux
-   buildgear build firmware
 
 Build system requirements:
 
