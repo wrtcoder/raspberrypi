@@ -18,12 +18,14 @@ Main features:
 Main builds:
 
    fs       - Filesystem
+   fs-xbmc  - A filesystem including xbmc
    linux    - Linux kernel
    firmware - Bootloader for GPU
 
 Quick build guide:
 
    buildgear build fs
+   buildgear build fs-xbmc
    buildgear build linux
    buildgear build firmware
 
@@ -36,7 +38,7 @@ Build system requirements:
                           libtool automake libncurses5-dev gawk libexpat1-dev \
                           gettext u-boot-tools libglib2.0-dev intltool cmake \
                           cabextract libgdk-pixbuf2.0-dev xutils-dev \
-                          python-libxml2 zip
+                          python-libxml2 zip liblzo2-dev libsdl-image1.2-dev
 
 
    Also requires reconfiguring "/bin/sh" to use bash:
