@@ -19,6 +19,6 @@
 [submodule "buildfiles/native/native-raspberrypi"]
 	path = buildfiles/native/native-raspberrypi
 	url = git@github.com:lundmar/native-raspberrypi.git
-[submodule "buildfiles/cross/cross-qt4"]
-	path = buildfiles/cross/cross-qt4
-	url = git@github.com:lundmar/cross-qt4.git
+[submodule "buildfiles/cross/cross-qt"]
+	path = buildfiles/cross/cross-qt
+	url = git@github.com:lundmar/cross-qt.git
