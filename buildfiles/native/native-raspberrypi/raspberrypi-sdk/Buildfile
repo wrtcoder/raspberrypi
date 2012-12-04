@@ -1,0 +1,22 @@
+# Description: A basic GNU/linux filesystem
+# URL: http://www.buildgear.org
+
+name=raspberrypi-sdk
+version=1.0
+release=1
+depends=(native/crosstool-ng fs)
+
+build() {
+   mkdir $PKG/$name
+
+   # Copy fully populated sysroot
+   cp -a $SYSROOT/* $PKG/$name
+
+   # Cleanup
+   rm -r $PKG/$name/share/locale
+   rm -r $PKG/$name/$HOST/sysroot/usr/{sbin,bin,man,share,etc}
+   rm -r $PKG/$name/$HOST/sysroot/{lib/modules,var,media,mnt,opt,proc,root,run,bin,sbin,srv,sys,tmp,home,etc}
+
+   # Create tarball
+   tar -C $PKG -acpf $OUTPUT/raspberrypi-sdk.tar.gz .
+}

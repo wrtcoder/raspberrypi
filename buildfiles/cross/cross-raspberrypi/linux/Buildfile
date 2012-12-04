@@ -1,0 +1,24 @@
+# Description: The Linux kernel
+# URL: http://www.kernel.org
+
+name=linux
+version=git-ddebe4d
+release=1
+source=(http://buildgear.org/mirror/raspberrypi/$name-rbp-$version.tar.xz
+        raspberrypi.config
+        cmdline.txt
+        config.txt)
+
+build(){
+   cd $name-rbp-$version
+
+   cp $SRC/raspberrypi.config .config
+
+   make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST-
+   make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST- modules
+   make ARCH=arm CROSS_COMPILE=$HOST- INSTALL_MOD_PATH=$PKG modules_install
+
+   cp arch/arm/boot/Image $OUTPUT/kernel.img
+   cp $SRC/cmdline.txt $OUTPUT
+   cp $SRC/config.txt $OUTPUT
+}

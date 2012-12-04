@@ -1,0 +1,16 @@
+# Description: The Raspberry Pi binaries
+# URL: https://github.com/raspberrypi/firmware
+
+name=bootloader
+version=git-b2200cd
+release=1
+
+source=(http://buildgear.org/mirror/raspberrypi/$name-rbp-$version.tar.xz)
+
+build() {
+   cd $name-rbp-$version
+
+   cp arm128_start.elf $OUTPUT/start.elf
+   cp loader.bin $OUTPUT
+   cp bootcode.bin $OUTPUT
+}

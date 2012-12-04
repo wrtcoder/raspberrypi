@@ -1,0 +1,2 @@
+arm_freq=855
+sdram_freq=500
