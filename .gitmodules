@@ -13,12 +13,6 @@
 [submodule "buildfiles/cross/cross-extra"]
 	path = buildfiles/cross/cross-extra
 	url = git@github.com:mini-distribution/cross-extra.git
-[submodule "buildfiles/cross/cross-raspberrypi"]
-	path = buildfiles/cross/cross-raspberrypi
-	url = git@github.com:mini-distribution/cross-raspberrypi.git
-[submodule "buildfiles/native/native-raspberrypi"]
-	path = buildfiles/native/native-raspberrypi
-	url = git@github.com:mini-distribution/native-raspberrypi.git
 [submodule "buildfiles/cross/cross-qt"]
 	path = buildfiles/cross/cross-qt
 	url = git@github.com:mini-distribution/cross-qt.git
