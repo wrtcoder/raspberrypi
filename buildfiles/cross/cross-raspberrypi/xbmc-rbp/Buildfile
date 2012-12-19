@@ -96,6 +96,6 @@ build() {
 check() {
    check_tool autopoint
    check_tool zip
-   check_lib /usr/include/lzo/lzo2a.h
-   check_lib /usr/include/SDL/SDL_image.h
+   check_exist /usr/include/lzo/lzo2a.h
+   check_exist /usr/include/SDL/SDL_image.h
 }
