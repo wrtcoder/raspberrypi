@@ -29,7 +29,7 @@ Quick build guide:
 
 Build system requirements:
 
-   Tested on Ubuntu 12.04 Minimal (64-bit x86) with the following additional
+   Tested on Ubuntu 12.10 Minimal (64-bit x86) with the following additional
    packages installed:
 
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
@@ -37,7 +37,7 @@ Build system requirements:
                           gettext u-boot-tools libglib2.0-dev intltool cmake \
                           cabextract libgdk-pixbuf2.0-dev xutils-dev \
                           python-libxml2 zip liblzo2-dev libsdl-image1.2-dev \
-                          autopoint
+                          autopoint xsltproc libxml2-utils docbook-simple
 
 
    Also requires reconfiguring "/bin/sh" to use bash:
