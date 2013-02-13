@@ -1,0 +1,22 @@
+# Description: The Linux kernel for Raspberry Pi
+# URL: https://github.com/raspberrypi/linux
+
+name=linux-source
+version=$LINUX_VERSION
+release=1
+source=(https://github.com/raspberrypi/linux/archive/${version/git-/}.zip
+        raspberrypi.config
+        cmdline.txt
+        config.txt)
+
+build(){
+   mkdir -p $PKG/usr/src
+
+   mv linux-${version/git-/}* $PKG/usr/src/linux
+   cd $PKG/usr/src/linux
+
+   cp $SRC/raspberrypi.config .config
+
+   cp $SRC/cmdline.txt $OUTPUT
+   cp $SRC/config.txt $OUTPUT
+}

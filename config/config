@@ -19,6 +19,9 @@ PATH="$NATIVE_SYSROOT/usr/bin:$PATH"
 # Set number of parallel make jobs
 JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
 
+# Set version of Linux kernel
+LINUX_VERSION=git-871eef1
+
 # Pkg-config cross configuration
 if [ "$BUILD_TYPE" = "cross" ]; then
    export PKG_CONFIG_DIR=

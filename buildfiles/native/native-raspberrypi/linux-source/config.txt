@@ -1,2 +1,3 @@
 arm_freq=855
 sdram_freq=500
+gpu_mem=128

@@ -2,23 +2,19 @@
 # URL: http://www.kernel.org
 
 name=linux
-version=git-ddebe4d
+version=$LINUX_VERSION
 release=1
-source=(http://buildgear.org/mirror/raspberrypi/$name-rbp-$version.tar.xz
-        raspberrypi.config
-        cmdline.txt
-        config.txt)
+depends=(native/linux-source)
 
 build(){
-   cd $name-rbp-$version
-
-   cp $SRC/raspberrypi.config .config
+   cd $NATIVE_SYSROOT/usr/src/linux
 
    make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST-
    make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST- modules
    make ARCH=arm CROSS_COMPILE=$HOST- INSTALL_MOD_PATH=$PKG modules_install
 
+   # Cleanup
+   rm $PKG/lib/modules/3.6.11/{build,source}
+
    cp arch/arm/boot/Image $OUTPUT/kernel.img
-   cp $SRC/cmdline.txt $OUTPUT
-   cp $SRC/config.txt $OUTPUT
 }
