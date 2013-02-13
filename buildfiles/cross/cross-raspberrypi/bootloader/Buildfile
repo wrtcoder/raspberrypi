@@ -4,12 +4,15 @@
 name=bootloader
 version=git-f715140
 release=1
-
-source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.zip)
+source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.zip
+        config.txt cmdline.txt)
 
 build() {
+   cp $SRC/config.txt $OUTPUT
+   cp $SRC/cmdline.txt $OUTPUT
+
    cd firmware-${version/git-/}*
 
-   cp boot/start.elf $OUTPUT/start.elf
+   cp boot/start.elf $OUTPUT
    cp boot/bootcode.bin $OUTPUT
 }

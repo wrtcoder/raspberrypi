@@ -5,9 +5,7 @@ name=linux-source
 version=$LINUX_VERSION
 release=1
 source=(https://github.com/raspberrypi/linux/archive/${version/git-/}.zip
-        raspberrypi.config
-        cmdline.txt
-        config.txt)
+        raspberrypi.config)
 
 build(){
    mkdir -p $PKG/usr/src
@@ -16,7 +14,4 @@ build(){
    cd $PKG/usr/src/linux
 
    cp $SRC/raspberrypi.config .config
-
-   cp $SRC/cmdline.txt $OUTPUT
-   cp $SRC/config.txt $OUTPUT
 }
