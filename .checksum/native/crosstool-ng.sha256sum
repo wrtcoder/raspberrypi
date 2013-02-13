@@ -1,0 +1,3 @@
+489442df994ca3095b1ab267c5ede6a3c2d634738d0191cecca7c762f3002fc4  arm-bcm2835-linux-gnueabi.config
+6961812e8cd9c28c8be32d9ac6dee36ed2645405dcbb70c0e9646672febd2be6  crosstool-ng-1.18.0.tar.bz2
+7862c7d6c313260ab45ada988053eedc89d3945bf91735b7d467d2eedbf5b91e  disable-LD_LIBRARY_PATH-check.patch
