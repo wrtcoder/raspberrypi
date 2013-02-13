@@ -2,15 +2,14 @@
 # URL: https://github.com/raspberrypi/firmware
 
 name=bootloader
-version=git-b2200cd
+version=git-f715140
 release=1
 
-source=(http://buildgear.org/mirror/raspberrypi/$name-rbp-$version.tar.xz)
+source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.zip)
 
 build() {
-   cd $name-rbp-$version
+   cd firmware-${version/git-/}*
 
-   cp arm128_start.elf $OUTPUT/start.elf
-   cp loader.bin $OUTPUT
-   cp bootcode.bin $OUTPUT
+   cp boot/start.elf $OUTPUT/start.elf
+   cp boot/bootcode.bin $OUTPUT
 }
