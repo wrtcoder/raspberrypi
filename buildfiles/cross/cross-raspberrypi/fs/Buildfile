@@ -17,13 +17,13 @@ build() {
    echo -e "Raspberry Pi Mini Distribution $version\n" > $PKG/etc/issue
 
    # Force systemd to enable getty login on ttyAMA0 (auto detect fails)
-   ln -s /usr/lib/systemd/system/serial-getty\@.service \
-         $PKG/etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service
+   ln -s /usr/lib/systemd/system/serial-getty\@.service \
+         $PKG/etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service
 
    # Cleanup
-   cd $PKG/usr/include; rm -rf !(python|python?.?)
-   find $PKG/usr/lib -name '*.a'  -delete -o \
-                     -name '*.la' -delete
+   cd $PKG/usr/include; rm -rf !(python|python?.?)
+   find $PKG/usr/lib -name '*.a'  -delete -o \
+                     -name '*.la' -delete
 
    # Create tarball
    tar -C $PKG -acpf $OUTPUT/$name.tar.gz .
