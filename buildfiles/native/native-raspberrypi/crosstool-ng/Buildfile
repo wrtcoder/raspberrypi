@@ -2,20 +2,18 @@
 # URL: http://www.crosstool-ng.org
 
 name=crosstool-ng
-version=1.17.0
+version=1.18.0
 release=1
 source=(http://crosstool-ng.org/download/$name/$name-$version.tar.bz2
         disable-LD_LIBRARY_PATH-check.patch
-        $HOST.config
-        http://buildgear.org/mirror/raspberrypi/linux-rbp-git-ddebe4d.tar.xz)
+        $HOST.config)
+depends=(native/linux-source)
 
 build()
 {
-   mv linux-rbp-git-ddebe4d linux
-
    cd $name-$version
 
-   patch -p1 -i $SRC/disable-LD_LIBRARY_PATH-check.patch
+   patch -p1 < $SRC/disable-LD_LIBRARY_PATH-check.patch
 
    ./configure --enable-local
    make
@@ -24,7 +22,7 @@ build()
    cp $SRC/$HOST.config .config
    sed -i /^CT_LOCAL_TARBALLS_DIR=/s:=.*:=\"$SOURCE\": .config
    sed -i /^CT_PREFIX_DIR=/s:=.*:=\"$PKG\": .config
-   sed -i /^CT_KERNEL_LINUX_CUSTOM_LOCATION=/s:=.*:=\"$SRC/linux\": .config
+   sed -i /^CT_KERNEL_LINUX_CUSTOM_LOCATION=/s:=.*:=\"$SYSROOT/usr/src/linux\": .config
 
    ./ct-ng build
 
