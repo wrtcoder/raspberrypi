@@ -18,13 +18,11 @@ Main features:
 Main builds:
 
    fs       - Filesystem
-   fs-xbmc  - A filesystem including xbmc
    linux    - Linux kernel
 
 Quick build guide:
 
    buildgear build fs
-   buildgear build fs-xbmc
    buildgear build linux
 
 Build system requirements:
@@ -34,10 +32,7 @@ Build system requirements:
 
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
                           libtool automake libncurses5-dev gawk libexpat1-dev \
-                          gettext u-boot-tools libglib2.0-dev intltool cmake \
-                          cabextract libgdk-pixbuf2.0-dev xutils-dev \
-                          python-libxml2 zip liblzo2-dev libsdl-image1.2-dev \
-                          autopoint xsltproc libxml2-utils docbook-simple
+                          gettext u-boot-tools libglib2.0-dev intltool
 
 
    Also requires reconfiguring "/bin/sh" to use bash:
