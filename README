@@ -17,13 +17,15 @@ Main features:
 
 Main builds:
 
-   fs       - Filesystem
-   linux    - Linux kernel
+   fs          - Filesystem
+   linux       - Linux kernel
+   bootloader  - Bootloader binaries, and configs
 
 Quick build guide:
 
    buildgear build fs
    buildgear build linux
+   buildgear build bootloader
 
 Build system requirements:
 
