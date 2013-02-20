@@ -23,8 +23,9 @@ Main builds:
 
 Quick build guide:
 
+   git submodule update --init
+
    buildgear build fs
-   buildgear build linux
    buildgear build bootloader
 
 Build system requirements:
@@ -32,10 +33,9 @@ Build system requirements:
    Tested on Ubuntu 12.10 Minimal (64-bit x86) with the following additional
    packages installed:
 
-   $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
-                          libtool automake libncurses5-dev gawk libexpat1-dev \
-                          gettext u-boot-tools libglib2.0-dev intltool
-
+   $ sudo apt-get install unzip gawk bison flex gperf texinfo libtool g++ \
+                          libncurses5-dev libexpat1-dev gettext libglib2.0-dev \
+                          xsltproc libxml2-utils docbook-xml intltool groff 
 
    Also requires reconfiguring "/bin/sh" to use bash:
 
