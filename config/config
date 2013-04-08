@@ -20,7 +20,7 @@ PATH="$NATIVE_SYSROOT/usr/bin:$PATH"
 JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
 
 # Set version of Linux kernel
-LINUX_VERSION=git-871eef1
+LINUX_VERSION=git-daa65a4
 
 # Pkg-config cross configuration
 if [ "$BUILD_TYPE" = "cross" ]; then

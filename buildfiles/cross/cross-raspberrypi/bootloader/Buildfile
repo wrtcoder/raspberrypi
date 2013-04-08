@@ -2,7 +2,7 @@
 # URL: https://github.com/raspberrypi/firmware
 
 name=bootloader
-version=git-f715140
+version=git-baa3ecf
 release=1
 source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.zip
         config.txt cmdline.txt)
