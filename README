@@ -28,6 +28,19 @@ Quick build guide:
    buildgear build fs
    buildgear build bootloader
 
+Quick installation guide (on an SD card found on device /dev/mmcblk0):
+
+   * Create an SD card with two partitions. E.g. using fdisk:
+      sudo fdisk /dev/mmcblk0  # then enter the following commands in fdisk:
+      n,p,enter,enter,+100M    # first partition
+      a                        # select first partition as bootable
+      n,p,enter,enter,w        #second partition
+   * Format the two partitions:
+      sudo mkfs.vfat -n boot   /dev/mmcblk0p0
+      sudo mkfs.ext4 -L rootfs /dev/mmcblk0p1
+   * Copy the kernel and bootloader to the first partition
+   * Untar the fs.tar.gz to the second partition
+
 Build system requirements:
 
    Tested on Ubuntu 12.10 Minimal (64-bit x86) with the following additional
