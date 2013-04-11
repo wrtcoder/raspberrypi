@@ -38,13 +38,13 @@ Quick firmware installation guide:
       a                        # select first partition as bootable
       n,p,enter,enter,w        # second partition
 
-   2. Format the two partitions:
+   3. Format the two partitions:
       sudo mkfs.vfat -n boot   /dev/mmcblk0p0
       sudo mkfs.ext4 -L rootfs /dev/mmcblk0p1
 
-   3. Copy the kernel and bootloader to the first partition
+   4. Copy the kernel and bootloader to the first partition
 
-   4. Untar the fs.tar.gz to the second partition
+   5. Untar the fs.tar.gz to the second partition
 
 Build system requirements:
 
