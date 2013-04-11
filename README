@@ -28,18 +28,23 @@ Quick build guide:
    buildgear build fs
    buildgear build bootloader
 
-Quick installation guide (on an SD card found on device /dev/mmcblk0):
+Quick firmware installation guide:
 
-   * Create an SD card with two partitions. E.g. using fdisk:
-      sudo fdisk /dev/mmcblk0  # then enter the following commands in fdisk:
+   1. Create an SD card with two partitions. E.g. using fdisk:
+      sudo fdisk /dev/mmcblk0
+
+   2. Then enter the following commands in fdisk:
       n,p,enter,enter,+100M    # first partition
       a                        # select first partition as bootable
-      n,p,enter,enter,w        #second partition
-   * Format the two partitions:
+      n,p,enter,enter,w        # second partition
+
+   2. Format the two partitions:
       sudo mkfs.vfat -n boot   /dev/mmcblk0p0
       sudo mkfs.ext4 -L rootfs /dev/mmcblk0p1
-   * Copy the kernel and bootloader to the first partition
-   * Untar the fs.tar.gz to the second partition
+
+   3. Copy the kernel and bootloader to the first partition
+
+   4. Untar the fs.tar.gz to the second partition
 
 Build system requirements:
 
