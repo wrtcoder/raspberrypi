@@ -14,7 +14,7 @@ build(){
    make ARCH=arm CROSS_COMPILE=$HOST- INSTALL_MOD_PATH=$PKG modules_install
 
    # Cleanup
-   rm $PKG/lib/modules/3.8.4/{build,source}
+   rm $PKG/lib/modules/$LINUX_VERSION/{build,source}
 
    cp arch/arm/boot/Image $OUTPUT/kernel.img
 }

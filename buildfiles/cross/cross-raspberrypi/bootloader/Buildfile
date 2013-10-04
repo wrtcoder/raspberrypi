@@ -1,10 +1,11 @@
 # Description: The Raspberry Pi binaries
 # URL: https://github.com/raspberrypi/firmware
+# License: Copyright (c) 2006, Broadcom Corporation
 
 name=bootloader
-version=git-baa3ecf
+version=git-f5328d3
 release=1
-source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.zip
+source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.tar.gz
         config.txt cmdline.txt)
 
 build() {
@@ -15,4 +16,5 @@ build() {
 
    cp boot/start.elf $OUTPUT
    cp boot/bootcode.bin $OUTPUT
+   cp boot/LICENCE.broadcom $OUTPUT
 }

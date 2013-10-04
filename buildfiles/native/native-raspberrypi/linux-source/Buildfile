@@ -1,10 +1,11 @@
 # Description: The Linux kernel for Raspberry Pi
 # URL: https://github.com/raspberrypi/linux
+# License: GPLv2
 
 name=linux-source
-version=$LINUX_VERSION
+version=git-c9f21f0
 release=1
-source=(https://github.com/raspberrypi/linux/archive/${version/git-/}.zip
+source=(https://github.com/raspberrypi/linux/archive/${version/git-/}.tar.gz
         raspberrypi.config)
 
 build(){
