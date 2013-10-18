@@ -13,7 +13,6 @@ build() {
    cp -a $SYSROOT/* $PKG/$name
 
    # Cleanup
-   rm -r $PKG/$name/share/locale
    rm -r $PKG/$name/$HOST/sysroot/usr/{sbin,bin,man,share,etc}
    rm -r $PKG/$name/$HOST/sysroot/{lib/modules,var,media,mnt,opt,proc,root,run,bin,sbin,srv,sys,tmp,home,etc}
 
