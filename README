@@ -53,7 +53,8 @@ Build system requirements:
 
    $ sudo apt-get install unzip gawk bison flex gperf texinfo libtool g++ \
                           libncurses5-dev libexpat1-dev gettext libglib2.0-dev \
-                          xsltproc libxml2-utils docbook-xml intltool groff 
+                          xsltproc libxml2-utils docbook-xml intltool groff \
+                          docbook-xsl
 
    Also requires reconfiguring "/bin/sh" to use bash:
 
