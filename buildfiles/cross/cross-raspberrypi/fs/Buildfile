@@ -20,6 +20,10 @@ build() {
    ln -s /usr/lib/systemd/system/serial-getty\@.service \
          $PKG/etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service
 
+   # enable connman
+   ln -s /etc/systemd/system/connman.service \
+         $PKG/etc/systemd/system/multi-user.target.wants/connman.service
+
    # Cleanup
    cd $PKG/usr/include; rm -rf !(python|python?.?)
    find $PKG/usr/lib -name '*.a'  -delete -o \

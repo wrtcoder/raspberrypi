@@ -72,6 +72,7 @@ drwxr-xr-x	root/root	etc/systemd/system/getty.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/getty.target.wants/getty@tty1.service -> /usr/lib/systemd/system/getty@.service
 lrwxrwxrwx	root/root	etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service -> /usr/lib/systemd/system/serial-getty@.service
 drwxr-xr-x	root/root	etc/systemd/system/multi-user.target.wants/
+lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/connman.service -> /etc/systemd/system/connman.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/dbus.service -> ../dbus.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/remote-fs.target -> /usr/lib/systemd/system/remote-fs.target
 drwxr-xr-x	root/root	etc/systemd/system/sockets.target.wants/
