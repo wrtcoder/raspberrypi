@@ -3,7 +3,7 @@
 # License: Copyright (c) 2006, Broadcom Corporation
 
 name=bootloader
-version=git-f5328d3
+version=git-3a4ba0c
 release=1
 source=(https://github.com/raspberrypi/firmware/archive/${version/git-/}.tar.gz
         config.txt cmdline.txt)
