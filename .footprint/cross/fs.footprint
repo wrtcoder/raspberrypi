@@ -2,6 +2,8 @@ lrwxrwxrwx	root/root	bin -> /usr/bin
 drwxr-xr-x	root/root	dev/
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/binfmt.d/
+drwxr-xr-x	root/root	etc/connman/
+-rw-r--r--	root/root	etc/connman/main.conf
 drwxr-xr-x	root/root	etc/cron/
 drwxr-xr-x	root/root	etc/cron/daily/
 -rwxr-xr-x	root/root	etc/cron/daily/makewhatis
@@ -62,7 +64,6 @@ drwxr-xr-x	root/root	etc/systemd/
 drwxr-xr-x	root/root	etc/systemd/ntp-units.d/
 drwxr-xr-x	root/root	etc/systemd/system/
 -rw-r--r--	root/root	etc/systemd/system.conf
--rw-r--r--	root/root	etc/systemd/system/connman.service
 -rw-r--r--	root/root	etc/systemd/system/dbus.service
 -rw-r--r--	root/root	etc/systemd/system/dbus.socket
 drwxr-xr-x	root/root	etc/systemd/system/dbus.target.wants/
@@ -92,8 +93,6 @@ drwxr-xr-x	root/root	etc/udev/rules.d/
 drwxr-xr-x	root/root	etc/xdg/
 drwxr-xr-x	root/root	etc/xdg/systemd/
 lrwxrwxrwx	root/root	etc/xdg/systemd/user -> /etc/systemd/user
-drwxr-xr-x	root/root	etc/xtables/
--rw-r--r--	root/root	etc/xtables/connlabel.conf
 drwxr-xr-x	root/root	home/
 drwxr-xr-x	root/root	lib/
 lrwxrwxrwx	root/root	lib32 -> lib
@@ -1064,6 +1063,7 @@ lrwxrwxrwx	root/root	usr/bin/captoinfo -> tic
 -rwxr-xr-x	root/root	usr/bin/chacl
 -rwsr-xr-x	root/root	usr/bin/chage
 -rwxr-xr-x	root/root	usr/bin/chcon
+-rwxr-xr-x	root/root	usr/bin/checkmk
 -rwxr-xr-x	root/root	usr/bin/chem
 -rwsr-xr-x	root/root	usr/bin/chfn
 -rwxr-xr-x	root/root	usr/bin/chgrp
@@ -1135,7 +1135,7 @@ hrwxr-xr-x	root/root	usr/bin/gawk-4.1.0 link to usr/bin/gawk
 -rwxr-xr-x	root/root	usr/bin/gdiffmk
 -rwxr-xr-x	root/root	usr/bin/gencat
 lrwxrwxrwx	root/root	usr/bin/geqn -> eqn
--rwxr-xr-x	root/root	usr/bin/getconf
+hrwxr-xr-x	root/root	usr/bin/getconf link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
 -rwxr-xr-x	root/root	usr/bin/get_device
 -rwxr-xr-x	root/root	usr/bin/get_driver
 -rwxr-xr-x	root/root	usr/bin/getent
@@ -1174,7 +1174,7 @@ lrwxrwxrwx	root/root	usr/bin/geqn -> eqn
 lrwxrwxrwx	root/root	usr/bin/gtbl -> tbl
 -rwxr-xr-x	root/root	usr/bin/gtester
 -rwxr-xr-x	root/root	usr/bin/gtester-report
-hrwxr-xr-x	root/root	usr/bin/gunzip link to usr/bin/uncompress
+-rwxr-xr-x	root/root	usr/bin/gunzip
 -rwxr-xr-x	root/root	usr/bin/gzexe
 -rwxr-xr-x	root/root	usr/bin/gzip
 -rwxr-xr-x	root/root	usr/bin/head
@@ -1430,7 +1430,7 @@ lrwxrwxrwx	root/root	usr/bin/snice -> skill
 -rwxr-xr-x	root/root	usr/bin/ul
 -rwsr-xr-x	root/root	usr/bin/umount
 -rwxr-xr-x	root/root	usr/bin/uname
--rwxr-xr-x	root/root	usr/bin/uncompress
+hrwxr-xr-x	root/root	usr/bin/uncompress link to usr/bin/gunzip
 -rwxr-xr-x	root/root	usr/bin/unexpand
 -rwxr-xr-x	root/root	usr/bin/unicode_start
 -rwxr-xr-x	root/root	usr/bin/unicode_stop
@@ -1513,12 +1513,12 @@ drwxr-xr-x	root/root	usr/lib/engines/
 -r-xr-xr-x	root/root	usr/lib/engines/libubsec.so
 drwxr-xr-x	root/root	usr/libexec/
 drwxr-xr-x	root/root	usr/libexec/getconf/
-hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V6_ILP32_OFF32 link to usr/bin/getconf
-hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG link to usr/bin/getconf
-hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_ILP32_OFF32 link to usr/bin/getconf
-hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_ILP32_OFFBIG link to usr/bin/getconf
-hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFF32 link to usr/bin/getconf
-hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFFBIG link to usr/bin/getconf
+hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V6_ILP32_OFF32 link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
+-rwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
+hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_ILP32_OFF32 link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
+hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_ILP32_OFFBIG link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
+hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFF32 link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
+hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFFBIG link to usr/libexec/getconf/POSIX_V6_ILP32_OFFBIG
 -rwsr-xr-x	root/root	usr/libexec/pt_chown
 -rwxr-xr-x	root/root	usr/libexec/sftp-server
 -rws--x--x	root/root	usr/libexec/ssh-keysign
@@ -1826,14 +1826,17 @@ lrwxrwxrwx	root/root	usr/lib/libBrokenLocale.so -> ../../lib/libBrokenLocale.so.
 -rw-r--r--	root/root	usr/lib/libcap.so.2.22
 lrwxrwxrwx	root/root	usr/lib/libcap.so.2 -> libcap.so.2.22
 lrwxrwxrwx	root/root	usr/lib/libcap.so -> libcap.so.2
+-rwxr-xr-x	root/root	usr/lib/libcheck.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcheck.so.0 -> libcheck.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcheck.so -> libcheck.so.0.0.0
 -r-xr-xr-x	root/root	usr/lib/libcrypto.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libcrypto.so -> libcrypto.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	root/root	usr/lib/libc.so
 lrwxrwxrwx	root/root	usr/lib/libcurses.so -> libncurses.so.5.9
--rwxr-xr-x	root/root	usr/lib/libdbus-1.so.3.7.4
-lrwxrwxrwx	root/root	usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.4
-lrwxrwxrwx	root/root	usr/lib/libdbus-1.so -> libdbus-1.so.3.7.4
+-rwxr-xr-x	root/root	usr/lib/libdbus-1.so.3.7.6
+lrwxrwxrwx	root/root	usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.6
+lrwxrwxrwx	root/root	usr/lib/libdbus-1.so -> libdbus-1.so.3.7.6
 lrwxrwxrwx	root/root	usr/lib/libdl.so -> ../../lib/libdl.so.2
 -rwxr-xr-x	root/root	usr/lib/libexpat.so.1.6.0
 lrwxrwxrwx	root/root	usr/lib/libexpat.so.1 -> libexpat.so.1.6.0
@@ -1851,21 +1854,21 @@ lrwxrwxrwx	root/root	usr/lib/libform.so -> libform.so.5
 -rwxr-xr-x	root/root	usr/lib/libgcrypt.so.11.8.2
 lrwxrwxrwx	root/root	usr/lib/libgcrypt.so.11 -> libgcrypt.so.11.8.2
 lrwxrwxrwx	root/root	usr/lib/libgcrypt.so -> libgcrypt.so.11.8.2
--rwxr-xr-x	root/root	usr/lib/libgio-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so -> libgio-2.0.so.0.3800.0
--rwxr-xr-x	root/root	usr/lib/libglib-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so -> libglib-2.0.so.0.3800.0
--rwxr-xr-x	root/root	usr/lib/libgmodule-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so -> libgmodule-2.0.so.0.3800.0
--rwxr-xr-x	root/root	usr/lib/libgmp.so.10.1.2
-lrwxrwxrwx	root/root	usr/lib/libgmp.so.10 -> libgmp.so.10.1.2
-lrwxrwxrwx	root/root	usr/lib/libgmp.so -> libgmp.so.10.1.2
--rwxr-xr-x	root/root	usr/lib/libgmpxx.so.4.3.2
-lrwxrwxrwx	root/root	usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.3.2
-lrwxrwxrwx	root/root	usr/lib/libgmpxx.so -> libgmpxx.so.4.3.2
+-rwxr-xr-x	root/root	usr/lib/libgio-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so -> libgio-2.0.so.0.3800.1
+-rwxr-xr-x	root/root	usr/lib/libglib-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so -> libglib-2.0.so.0.3800.1
+-rwxr-xr-x	root/root	usr/lib/libgmodule-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so -> libgmodule-2.0.so.0.3800.1
+-rwxr-xr-x	root/root	usr/lib/libgmp.so.10.1.3
+lrwxrwxrwx	root/root	usr/lib/libgmp.so.10 -> libgmp.so.10.1.3
+lrwxrwxrwx	root/root	usr/lib/libgmp.so -> libgmp.so.10.1.3
+-rwxr-xr-x	root/root	usr/lib/libgmpxx.so.4.3.3
+lrwxrwxrwx	root/root	usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.3.3
+lrwxrwxrwx	root/root	usr/lib/libgmpxx.so -> libgmpxx.so.4.3.3
 -rwxr-xr-x	root/root	usr/lib/libgnutls-openssl.so.27.0.2
 lrwxrwxrwx	root/root	usr/lib/libgnutls-openssl.so.27 -> libgnutls-openssl.so.27.0.2
 lrwxrwxrwx	root/root	usr/lib/libgnutls-openssl.so -> libgnutls-openssl.so.27.0.2
@@ -1875,15 +1878,15 @@ lrwxrwxrwx	root/root	usr/lib/libgnutls.so -> libgnutls.so.28.15.0
 -rwxr-xr-x	root/root	usr/lib/libgnutlsxx.so.28.1.0
 lrwxrwxrwx	root/root	usr/lib/libgnutlsxx.so.28 -> libgnutlsxx.so.28.1.0
 lrwxrwxrwx	root/root	usr/lib/libgnutlsxx.so -> libgnutlsxx.so.28.1.0
--rwxr-xr-x	root/root	usr/lib/libgobject-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so.0 -> libgobject-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so -> libgobject-2.0.so.0.3800.0
+-rwxr-xr-x	root/root	usr/lib/libgobject-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so.0 -> libgobject-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so -> libgobject-2.0.so.0.3800.1
 -rwxr-xr-x	root/root	usr/lib/libgpg-error.so.0.10.0
 lrwxrwxrwx	root/root	usr/lib/libgpg-error.so.0 -> libgpg-error.so.0.10.0
 lrwxrwxrwx	root/root	usr/lib/libgpg-error.so -> libgpg-error.so.0.10.0
--rwxr-xr-x	root/root	usr/lib/libgthread-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.3800.0
-lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so -> libgthread-2.0.so.0.3800.0
+-rwxr-xr-x	root/root	usr/lib/libgthread-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.3800.1
+lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so -> libgthread-2.0.so.0.3800.1
 -rwxr-xr-x	root/root	usr/lib/libgudev-1.0.so.0.1.3
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.3
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.3
@@ -1922,13 +1925,13 @@ lrwxrwxrwx	root/root	usr/lib/libncurses.so -> libncurses.so.5
 lrwxrwxrwx	root/root	usr/lib/libnettle.so.4 -> libnettle.so.4.7
 lrwxrwxrwx	root/root	usr/lib/libnettle.so -> libnettle.so.4.7
 drwxr-xr-x	root/root	usr/lib/libnl/
--rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.18.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/
--rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.18.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/cls/
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/cls/basic.so
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/cls/cgroup.so
@@ -1938,15 +1941,18 @@ drwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/htb.so
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/pfifo.so
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/plug.so
--rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.17.0
--rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.17.0
--rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-idiag-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so.200 -> libnl-idiag-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so -> libnl-idiag-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.18.0
 lrwxrwxrwx	root/root	usr/lib/libnsl.so -> ../../lib/libnsl.so.1
 lrwxrwxrwx	root/root	usr/lib/libnss_compat.so -> ../../lib/libnss_compat.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_db.so -> ../../lib/libnss_db.so.2
@@ -1989,22 +1995,22 @@ lrwxrwxrwx	root/root	usr/lib/libsysfs.so -> libsysfs.so.2.0.1
 -rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.10
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.10
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.10
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.25
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.25
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.25
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.11.2
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.11.2
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.11.2
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.9.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.9.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.9.0
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.26
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.26
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.26
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.11.3
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.11.3
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.11.3
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.9.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.9.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.9.1
 lrwxrwxrwx	root/root	usr/lib/libthread_db.so -> ../../lib/libthread_db.so.1
 -rwxr-xr-x	root/root	usr/lib/libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so.5 -> libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so -> libtinfo.so.5
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.3.8
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.3.8
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.3.8
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.4.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.4.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.4.0
 -rwxr-xr-x	root/root	usr/lib/libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so.0 -> libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so -> libusb-1.0.so.0.1.0
@@ -2025,6 +2031,7 @@ lrwxrwxrwx	root/root	usr/lib/libz.so -> libz.so.1.2.8
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/blkid.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/check.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/connman.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/dbus-1.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/expat.pc
@@ -2087,6 +2094,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/basic.target
 -rw-r--r--	root/root	usr/lib/systemd/system/bluetooth.target
+-rw-r--r--	root/root	usr/lib/systemd/system/connman.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-getty.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-shell.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/ctrl-alt-del.target -> reboot.target
@@ -2417,7 +2425,6 @@ drwxr-xr-x	root/root	usr/lib/xtables/
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_cluster.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_comment.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_connbytes.so
--rwxr-xr-x	root/root	usr/lib/xtables/libxt_connlabel.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_connlimit.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_connmark.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_CONNMARK.so
@@ -2605,6 +2612,7 @@ lrwxrwxrwx	root/root	usr/sbin/vigr -> vipw
 -rwxr-xr-x	root/root	usr/sbin/zic
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/check.m4
 -rw-r--r--	root/root	usr/share/aclocal/glib-2.0.m4
 -rw-r--r--	root/root	usr/share/aclocal/glib-gettext.m4
 -rw-r--r--	root/root	usr/share/aclocal/gpg-error.m4
@@ -2684,6 +2692,7 @@ drwxr-xr-x	root/root	usr/share/bash-completion/completions/
 -rw-r--r--	root/root	usr/share/bash-completion/completions/lscpu
 -rw-r--r--	root/root	usr/share/bash-completion/completions/lslocks
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mcookie
+-rw-r--r--	root/root	usr/share/bash-completion/completions/mesg
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs.bfs
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs.cramfs
@@ -2789,13 +2798,14 @@ drwxr-xr-x	root/root	usr/share/doc/systemd/
 -rw-r--r--	root/root	usr/share/doc/systemd/README
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.c
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.h
+drwxr-xr-x	root/root	usr/share/doc/util-linux/
+drwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/
+-rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.bash
+-rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.tcsh
 drwxr-xr-x	root/root	usr/share/gdb/
 drwxr-xr-x	root/root	usr/share/gdb/auto-load/
--rwxr-xr-x	root/root	usr/share/gdb/auto-load/libglib-2.0.so.0.3800.0-gdb.py
--rwxr-xr-x	root/root	usr/share/gdb/auto-load/libgobject-2.0.so.0.3800.0-gdb.py
-drwxr-xr-x	root/root	usr/share/getopt/
--rwxr-xr-x	root/root	usr/share/getopt/getopt-parse.bash
--rwxr-xr-x	root/root	usr/share/getopt/getopt-parse.tcsh
+-rwxr-xr-x	root/root	usr/share/gdb/auto-load/libglib-2.0.so.0.3800.1-gdb.py
+-rwxr-xr-x	root/root	usr/share/gdb/auto-load/libgobject-2.0.so.0.3800.1-gdb.py
 drwxr-xr-x	root/root	usr/share/glib-2.0/
 drwxr-xr-x	root/root	usr/share/glib-2.0/codegen/
 -rw-r--r--	root/root	usr/share/glib-2.0/codegen/codegen_docbook.py
@@ -3261,6 +3271,9 @@ drwxr-xr-x	root/root	usr/share/groff/site-font/
 drwxr-xr-x	root/root	usr/share/groff/site-tmac/
 -rw-r--r--	root/root	usr/share/groff/site-tmac/man.local
 -rw-r--r--	root/root	usr/share/groff/site-tmac/mdoc.local
+drwxr-xr-x	root/root	usr/share/info/
+-rw-r--r--	root/root	usr/share/info/check.info
+-rw-r--r--	root/root	usr/share/info/dir
 drwxr-xr-x	root/root	usr/share/kbd/
 drwxr-xr-x	root/root	usr/share/kbd/consolefonts/
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/161.cp.gz
@@ -3552,8 +3565,8 @@ drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/azerty/
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/azerty/wangbe2.map.gz
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/azerty/wangbe.map.gz
 drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/bepo/
--rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/dvorak-fr-bepo.map.gz
--rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/dvorak-fr-bepo-utf8.map.gz
+-rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/fr-bepo-latin9.map.gz
+-rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/fr-bepo.map.gz
 drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/colemak/
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/colemak/en-latin9.map.gz
 drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/dvorak/
@@ -3848,6 +3861,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/certtool.1
 -rw-r--r--	root/root	usr/share/man/man1/chacl.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/chage.1
+-rw-r--r--	root/root	usr/share/man/man1/checkmk.1
 -rw-r--r--	root/root	usr/share/man/man1/chem.1
 -rw-r--r--	root/root	usr/share/man/man1/chfn.1
 -rw-r--r--	root/root	usr/share/man/man1/chrt.1
@@ -7298,13 +7312,13 @@ lrwxrwxrwx	root/root	usr/share/man/man5/host.deny.5.gz -> hosts_access.5.gz
 -rw-r--r--	root/root	usr/share/man/man5/sysctl.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/sysctl.d.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.automount.5
--rw-r--r--	root/root	usr/share/man/man5/systemd.cgroup.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.device.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.exec.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.kill.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.mount.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.path.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.preset.5
+-rw-r--r--	root/root	usr/share/man/man5/systemd.resource-control.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.scope.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.service.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd-sleep.conf.5
