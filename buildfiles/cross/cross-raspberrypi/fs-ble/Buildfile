@@ -1,0 +1,46 @@
+# Description: A basic GNU/linux filesystem with bluez v5 + libsensact
+# URL: http://www.buildgear.org
+
+name=fs-ble
+version=0.1
+release=1
+source=(connman-config.service)
+depends=(core linux net-tools traceroute connman mc bluez)
+
+build() {
+   # Copy fully populated sysroot
+   cp -a $SYSROOT/* $PKG
+
+   # Set host name
+   echo "raspberrypi" > $PKG/etc/hostname
+
+   # Set login issue
+   echo -e "Raspberry Pi Mini Distribution $version\n" > $PKG/etc/issue
+
+   # Force systemd to enable getty login on ttyAMA0 (auto detect fails)
+   ln -s /usr/lib/systemd/system/serial-getty\@.service \
+         $PKG/etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service
+
+   # enable connman
+   ln -s /etc/systemd/system/connman.service \
+         $PKG/etc/systemd/system/multi-user.target.wants/connman.service
+
+   # enable bluetooth
+   mkdir -p $PKG/etc/systemd/system/bluetooth.target.wants
+   ln -s /usr/lib/systemd/system/bluetooth.service \
+         $PKG/etc/systemd/system/dbus-org.bluez.service
+   ln -s /usr/lib/systemd/system/bluetooth.service \
+         $PKG/etc/systemd/system/bluetooth.target.wants/bluetooth.service
+
+   # Force connman to enable bluetooth power
+   ln -s /etc/systemd/system/connman-config.service \
+         $PKG/etc/systemd/system/multi-user.target.wants/connman-config.service
+
+   # Cleanup
+   cd $PKG/usr/include; rm -rf !(python|python?.?)
+   find $PKG/usr/lib -name '*.a'  -delete -o \
+                     -name '*.la' -delete
+
+   # Create tarball
+   tar -C $PKG -acpf $OUTPUT/$name.tar.gz .
+}

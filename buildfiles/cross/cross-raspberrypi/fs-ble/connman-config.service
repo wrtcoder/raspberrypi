@@ -1,0 +1,11 @@
+[Unit]
+Description=Connman configuration
+After=connman.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/connmanctl enable bluetooth
+
+[Install]
+WantedBy=multi-user.target
