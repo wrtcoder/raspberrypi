@@ -7,6 +7,7 @@ version=git-c9f21f0
 release=1
 source=(https://github.com/raspberrypi/linux/archive/${version/git-/}.tar.gz
         raspberrypi.config)
+options=(nostrip)
 
 build(){
    mkdir -p $PKG/usr/src

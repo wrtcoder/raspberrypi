@@ -5,6 +5,7 @@ name=fs
 version=1.0
 release=1
 depends=(core linux net-tools traceroute connman)
+options=(nostrip)
 
 build() {
    # Copy fully populated sysroot
